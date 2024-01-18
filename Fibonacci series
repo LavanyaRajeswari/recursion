@@ -1,0 +1,58 @@
+//Fibonacci using brutte force
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int n;
+	cin>>n;
+	int f=0,s=1;
+	vector<int>v;
+	v.push_back(f);
+	v.push_back(s);
+	while(s<n){
+	v.push_back(v[f]+v[s]);
+	f++;
+	s++;	
+	}
+	for(int i=0;i<n;i++){
+		cout<<v[i]<<" ";
+	}
+}
+
+
+//Fibonacci using recursion
+#include<bits/stdc++.h>
+using namespace std;
+int fun(int n){
+	if(n == 0) return 0;
+	if(n == 1) return 1;
+	return fun(n-1)+fun(n-2);
+}
+int main(){
+	int n;
+	cin>>n;
+	cout<<fun(n);
+}
+
+
+S//Fibonacci using recusion and DP
+#include<bits/stdc++.h>
+using namespace std;
+int fun(int n , vector<int>&dp){
+	if(n == 0) return 0;
+	if(n == 1) return 1;
+	if(dp[n-1] == -1){
+		dp[n-1] = fun(n-1,dp);	
+	}
+	if(dp[n-2] == -1){
+		dp[n-2] = fun(n-2,dp);
+	}
+	dp[n] = dp[n-1]+dp[n-2];
+	return fun(n-1,dp)+fun(n-2,dp);
+}
+int main(){
+	int n;
+	cin>>n;
+	vector<int>dp(n,-1);
+	cout<<fun(n,dp);
+}
+
