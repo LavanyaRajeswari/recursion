@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+//recursion
+
+void fun(int x,int y,int i){
+	if(i == y+1){
+	return;
+    }
+	cout<<x<<" x "<<i<<" = "<<x*i<<endl;
+	fun(x,y,i+1);
+	}
+int main(){
+	int x,y;
+	cin>>x>>y;
+	fun(x,y,1);
+}
+
+//Back Tracking
+
+void fun(int n,int i){
+	if(i==0){
+	return;
+    }
+	fun(n,i-1);
+	cout<<n<<" x "<<i<<" = "<<n*i<<endl;
+	}
+int main(){
+	int x,y;
+	cin>>x>>y;
+	fun(x,y);
+}
