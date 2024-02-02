@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+void fib(int a,int b,int i,int n){
+	if(i>=n) return;
+	cout<<a<<" ";
+	fib(b,a+b,i+1,n);
+}
+int main(){
+	int n;
+	cin>>n;
+	fib(0,1,0,n);
+}
